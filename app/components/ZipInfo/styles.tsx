@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginTop: 24,
+    marginLeft: 12,
   },
   valueStyle: {
     fontSize: 16,
@@ -40,6 +41,12 @@ const styles = StyleSheet.create({
     height: 32,
     minHeight: 32,
     backgroundColor: '#cccccc',
+  },
+  errorStyle: {
+    marginTop: 16,
+    marginLeft: 12,
+    fontSize: 16,
+    color: '#DD0000',
   },
 });
 
