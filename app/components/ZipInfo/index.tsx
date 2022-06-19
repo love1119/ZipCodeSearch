@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import {zipSelector} from '../../store/selectors/zipSelector';
 
+import ZipDetails from './ZipDetails';
+
 import {RootState} from '../../store/types';
 import {ZipResult} from '../../types';
 
@@ -13,12 +15,8 @@ interface Props {
   zipInfo: ZipResult;
 }
 
-const ZipInfo = ({isLoading, error, zipInfo}: Props) => {
-  console.log('******* isLoading ', isLoading);
-  console.log('******* error ', error);
-  console.log('******* zipInfo ', zipInfo);
-
-  return <View></View>;
+const ZipInfo: React.FC<Props> = ({isLoading, error, zipInfo}) => {
+  return <View>{!isLoading && <ZipDetails data={zipInfo} />}</View>;
 };
 
 const mapStateToProps = (state: RootState) => ({

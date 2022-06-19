@@ -11,7 +11,7 @@ interface Props {
   getZipInfo: Function;
 }
 
-const ZipInput = ({getZipInfo}: Props) => {
+const ZipInput: React.FC<Props> = ({getZipInfo}) => {
   const [value, setValue] = useState<string>('');
 
   const onSubmit = () => {
