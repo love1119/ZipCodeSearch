@@ -11,7 +11,7 @@ interface PlaceRowProps {
   row: Place;
 }
 
-const PlaceRow: React.FC<PlaceRowProps> = ({row}) => {
+const PlaceRow: React.FC<PlaceRowProps> = ({row}: any) => {
   return (
     <View>
       {Object.keys(row).map((field: string) => (

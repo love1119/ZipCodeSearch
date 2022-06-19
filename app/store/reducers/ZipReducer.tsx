@@ -1,5 +1,4 @@
 import {handleActions} from 'redux-actions';
-import {Map} from 'immutable';
 
 import {constants as zipConstants} from '../actions/ZipActions';
 
@@ -10,19 +9,19 @@ export const reducers = {
     state: RootState,
     {payload}: {payload: any},
   ) => {
-    return state.merge({
+    return {
+      ...state,
       zipInfo: payload.zipInfo,
       loading: payload.loading,
       error: payload.error,
-    });
+    };
   },
 };
 
-export const initialState = () =>
-  Map({
-    loading: false,
-    error: null,
-    zipInfo: {},
-  });
+export const initialState: any = () => ({
+  loading: false,
+  error: null,
+  zipInfo: {},
+});
 
 export default handleActions(reducers, initialState());

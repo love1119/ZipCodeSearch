@@ -7,10 +7,10 @@ type Place = {
 };
 
 type ZipResult = {
-  'post code': string;
-  country: string;
-  'country abbreviation': string;
-  places: Place[];
+  'post code'?: string;
+  country?: string;
+  'country abbreviation'?: string;
+  places?: Place[];
 };
 
 export type {Place, ZipResult};

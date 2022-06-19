@@ -1,3 +1,4 @@
+import {AxiosResponse} from 'axios';
 import {put, fork, takeLatest, call} from 'redux-saga/effects';
 
 import {getZipInfoAPI} from '../../api/zip';
@@ -7,7 +8,7 @@ import {
   actions as zipActions,
 } from '../actions/ZipActions';
 
-export function* searchZipInfo({payload}: {payload: any}) {
+export function* searchZipInfo({payload}: {payload: string}) {
   yield put(
     zipActions.setZipInfo({
       loading: true,
@@ -16,12 +17,10 @@ export function* searchZipInfo({payload}: {payload: any}) {
     }),
   );
 
-  console.log('**** payload ', payload);
-
   try {
-    const response: any = yield call(getZipInfoAPI, payload);
+    const response: AxiosResponse = yield call(getZipInfoAPI, payload);
 
-    if (response.status === 200) {
+    if (response?.status === 200) {
       yield put(
         zipActions.setZipInfo({
           loading: false,
