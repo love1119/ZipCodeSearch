@@ -28,6 +28,19 @@ const styles = StyleSheet.create({
     marginLeft: 32,
     marginTop: 16,
   },
+  zipPlaceholder: {
+    marginTop: 16,
+  },
+  placeholder: {
+    marginLeft: 16,
+    marginRight: 16,
+    marginTop: 8,
+    marginBottom: 8,
+    width: '90%',
+    height: 32,
+    minHeight: 32,
+    backgroundColor: '#cccccc',
+  },
 });
 
 export default styles;
