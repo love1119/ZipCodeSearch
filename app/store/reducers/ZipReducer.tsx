@@ -20,7 +20,7 @@ export const reducers = {
 
 export const initialState: any = () => ({
   loading: false,
-  error: null,
+  error: '',
   zipInfo: {},
 });
 

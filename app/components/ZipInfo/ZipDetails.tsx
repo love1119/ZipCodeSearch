@@ -1,6 +1,9 @@
 import React from 'react';
 import {View, Text, FlatList} from 'react-native';
+import isEmpty from 'lodash/isEmpty';
+
 import {ZipResult, Place} from '../../types';
+
 import styles from './styles';
 
 interface Props {
@@ -29,14 +32,18 @@ const ZipDetails: React.FC<Props> = ({data}) => {
 
   return (
     <View style={styles.containerStyle}>
-      <Text style={styles.labelStyle}>Country:</Text>
-      <Text style={styles.valueStyle}>{data.country}</Text>
-      <Text style={styles.labelStyle}>Places:</Text>
-      <FlatList
-        data={data.places}
-        renderItem={renderItem}
-        keyExtractor={(item: Place) => item.longitude}
-      />
+      {!isEmpty(data) && (
+        <>
+          <Text style={styles.labelStyle}>Country:</Text>
+          <Text style={styles.valueStyle}>{data.country}</Text>
+          <Text style={styles.labelStyle}>Places:</Text>
+          <FlatList
+            data={data.places}
+            renderItem={renderItem}
+            keyExtractor={(item: Place) => item.longitude}
+          />
+        </>
+      )}
     </View>
   );
 };
